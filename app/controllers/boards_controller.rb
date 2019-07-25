@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
 
   def create
     board = Board.create(board_params)
-    
+
     redirect_to board
   end
 
@@ -23,7 +23,7 @@ class BoardsController < ApplicationController
 
   def update
     board = Board.find(params[:id])
-    board.upadate(board_params)
+    board.update(board_params)
 
     redirect_to board #--オブジェクトで指定できる
   end
