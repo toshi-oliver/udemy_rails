@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   end
 
   def new
-    @board = Board.new
+    @@board = Board.new(flash[:board])
   end
 
   def create
@@ -23,7 +23,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @comment = @board.comments.new
+    @comment = Comment.new(board_id: @board.id)
   end
 
   def edit
@@ -36,7 +36,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.delete
-    redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました"}
+    redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました" }
   end
 
   private
