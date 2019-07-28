@@ -24,6 +24,7 @@ class BoardsController < ApplicationController
 
   def show
     @comment = Comment.new(board_id: @board.id)
+    #よくわからん
   end
 
   def edit
